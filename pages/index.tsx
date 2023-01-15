@@ -2,10 +2,27 @@ import Head from 'next/head'
 import Image from 'next/image'
 import { Inter } from '@next/font/google'
 import styles from '@/styles/Home.module.css'
+import { Configuration, OpenAIApi } from 'openai'
 
 const inter = Inter({ subsets: ['latin'] })
 
+
 export default function Home() {
+
+  const configuration = new Configuration({
+    apiKey: process.env.OPENAI_API_KEY,
+  });
+  const openai = new OpenAIApi(configuration);
+
+  const completion = openai.createCompletion({
+    model: "text-davinci-002",
+    prompt: "Hello world",
+  });
+
+  completion.then(response => {
+    console.log(response.data.choices[0].text);
+  })
+
   return (
     <>
       <Head>

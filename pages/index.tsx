@@ -8,7 +8,6 @@ const inter = Inter({ subsets: ['latin'] })
 
 
 export default function Home() {
-
   const configuration = new Configuration({
     apiKey: process.env.OPENAI_API_KEY,
   });
@@ -21,6 +20,7 @@ export default function Home() {
 
   completion.then(response => {
     console.log(response.data.choices[0].text);
+    console.log(response)
   })
 
   return (

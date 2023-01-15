@@ -8,10 +8,9 @@ const inter = Inter({ subsets: ['latin'] })
 
 
 export default function Home() {
-  console.log('process',process)
-  console.log('NEXT_PUBLIC_OPENAI_API_KEY',process.env.NEXT_PUBLIC_OPENAI_API_KEY)
   const configuration = new Configuration({
-    apiKey: process.env.NEXT_PUBLIC_OPENAI_API_KEY,
+    // apiKey: process.env.NEXT_PUBLIC_OPENAI_API_KEY,
+    apiKey: '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',
   });
   const openai = new OpenAIApi(configuration);
 
